@@ -10,6 +10,7 @@ public class Mp3PlayerApp {
             System.out.println("缺少参数!");
             return;
         }
+
         new Player(args[0]);
     }
 }

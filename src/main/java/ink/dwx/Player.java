@@ -3,6 +3,7 @@ package ink.dwx;
 import cn.hutool.core.io.FileUtil;
 import jaco.mp3.player.MP3Player;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,17 +41,27 @@ public class Player {
     }
 
     private void play() {
+        mp3Player.setBorder(BorderFactory.createEmptyBorder(50, 100, 50, 100));
+
+        JFrame frame = new JFrame("MP3 Player");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(mp3Player);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
         mp3Player.play();
-        while (true) {
-            if (mp3Player.isStopped()) {
-                break;
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+
+//        while (true) {
+//            if (mp3Player.isStopped()) {
+//                break;
+//            }
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
 }
