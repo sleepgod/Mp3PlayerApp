@@ -18,11 +18,11 @@ public class Mp3PlayerApp {
 
         try {
             CommandLine commandLine = parser.parse(options, args);
-            Player player = new Player(commandLine.hasOption("g"));
-
             if (commandLine.hasOption("p")) {
+                Player player = new Player(commandLine.hasOption("g"));
                 player.playPath(commandLine.getOptionValue("p"));
             } else if (commandLine.hasOption("f")) {
+                Player player = new Player(commandLine.hasOption("g"));
                 player.playFile(commandLine.getOptionValue("f"));
             } else if (commandLine.hasOption("h")) {
                 showHelp(options);
