@@ -30,7 +30,8 @@ public class Mp3PlayerApp {
                 showHelp(options);
             }
         } catch (ParseException e) {
-            e.printStackTrace();
+            System.out.println("输入错误:");
+            showHelp(options);
         }
     }
 
