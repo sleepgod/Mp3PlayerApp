@@ -1,12 +1,7 @@
 name: package
 
 on:
-  push:
-#    branches: [ master ]
-#  pull_request:
-#    branches: [ master ]
-
-#  workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -26,6 +21,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ github.ref }}
           files: |
-            target/*.jae
+            target/*.jar
             target/lib
