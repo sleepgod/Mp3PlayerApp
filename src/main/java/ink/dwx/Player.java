@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Player {
 
@@ -69,15 +70,44 @@ public class Player {
         }
     }
 
+    private void showHelp() {
+        System.out.println("快捷操作:");
+        System.out.println("\tn : 下一首");
+        System.out.println("\tm : 上一首");
+        System.out.println("\ta : 暂停");
+        System.out.println("\tp : 播放");
+        System.out.println("\tq : 退出");
+    }
+
     private void myRun() {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             if (mp3Player.isStopped()) {
                 break;
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            showHelp();
+            String opsn = scanner.next();
+            switch (opsn) {
+                case "n": {
+                    mp3Player.skipForward();
+                    break;
+                }
+                case "m": {
+                    mp3Player.skipBackward();
+                    break;
+                }
+                case "a": {
+                    mp3Player.pause();
+                    break;
+                }
+                case "p": {
+                    mp3Player.play();
+                    break;
+                }
+                case "q": {
+                    mp3Player.stop();
+                    break;
+                }
             }
         }
     }
