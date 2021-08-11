@@ -1,0 +1,24 @@
+name: package
+
+on:
+  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+
+#  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v4.1
+
+      - name: Run a multi-line script
+        run: |
+          mvn install:install-file -Dfile=./lib/jaco-mp3-player-0.9.3.jar -DgroupId=jaco.mp3.player -DartifactId=jaco-mp3 -Dversion=0.9.3 -Dpackaging=jar
+          mvn package
