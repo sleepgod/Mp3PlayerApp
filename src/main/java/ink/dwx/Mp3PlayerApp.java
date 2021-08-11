@@ -38,7 +38,7 @@ public class Mp3PlayerApp {
     private static void showHelp(Options options) {
         Option[] ops = options.getOptions().toArray(new Option[options.getOptions().size()]);
         for (int i = 0; i < ops.length; i++) {
-            System.out.println("-" + ops[i].getOpt() + " : " + ops[i].getDescription());
+            System.out.println("\t-" + ops[i].getOpt() + " : " + ops[i].getDescription());
         }
     }
 }
