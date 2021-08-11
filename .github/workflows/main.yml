@@ -22,3 +22,10 @@ jobs:
         run: |
           mvn install:install-file -Dfile=./lib/jaco-mp3-player-0.9.3.jar -DgroupId=jaco.mp3.player -DartifactId=jaco-mp3 -Dversion=0.9.3 -Dpackaging=jar
           mvn package
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            target/*.jae
+            target/lib
