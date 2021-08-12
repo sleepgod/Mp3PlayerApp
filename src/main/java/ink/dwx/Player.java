@@ -74,8 +74,7 @@ public class Player {
         System.out.println("快捷操作:");
         System.out.println("\tn : 下一首");
         System.out.println("\tm : 上一首");
-        System.out.println("\ta : 暂停");
-        System.out.println("\tp : 播放");
+        System.out.println("\tp : 暂停/播放");
         System.out.println("\tq : 退出");
     }
 
@@ -96,12 +95,12 @@ public class Player {
                     mp3Player.skipBackward();
                     break;
                 }
-                case "a": {
-                    mp3Player.pause();
-                    break;
-                }
                 case "p": {
-                    mp3Player.play();
+                    if (mp3Player.isPaused()) {
+                        mp3Player.play();
+                    } else {
+                        mp3Player.pause();
+                    }
                     break;
                 }
                 case "q": {
