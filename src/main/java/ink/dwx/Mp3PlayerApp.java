@@ -3,7 +3,7 @@ package ink.dwx;
 import org.apache.commons.cli.*;
 
 /**
- * Hello world!
+ * Mp3 Player App!
  */
 public class Mp3PlayerApp {
 
