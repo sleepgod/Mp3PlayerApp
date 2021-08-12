@@ -19,7 +19,7 @@
 
     <dependencies>
 
-        <!--        mvn install:install-file -Dfile=jaco-mp3-player-0.9.3.jar -DgroupId=jaco.mp3.player -DartifactId=jaco-mp3 -Dversion=0.9.3 -Dpackaging=jar-->
+        <!--        mvn install:install-file -Dfile=jaco-mp3-player-0.9.3.jar -DgroupId=jaco.mp3.player -DartifactId=jaco-mp3-player -Dversion=0.9.3 -Dpackaging=jar-->
         <dependency>
             <groupId>jaco.mp3.player</groupId>
             <artifactId>jaco-mp3-player</artifactId>
