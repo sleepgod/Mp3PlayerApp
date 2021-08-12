@@ -18,10 +18,21 @@ jobs:
           mvn install:install-file -Dfile=./lib/jaco-mp3-player-0.9.3.jar -DgroupId=jaco.mp3.player -DartifactId=jaco-mp3 -Dversion=0.9.3 -Dpackaging=jar
           mvn package
 
+      - name: Generate release tag
+        id: tag
+        run: |
+          echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
+        
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
             target/*.jar
-            target/lib
+            ./lib
+            
+      - name: Remove old Releases
+        uses: dev-drprasad/delete-older-releases@v0.1.0
+        with:
+          keep_latest: 3
+          delete_tags: true
