@@ -1,4 +1,4 @@
-name: package
+name: mvn package
 
 on:
   workflow_dispatch:
